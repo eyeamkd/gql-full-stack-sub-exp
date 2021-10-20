@@ -1,0 +1,17 @@
+{
+  "name": "graphql-client-server-subs-exp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1", 
+    "server":"npm --prefix server start",
+    "client" : "npm --prefix client start ",
+    "start":"npm run client && npm run server",
+    "db":"docker-compose -f server/db/docker-compose.yml up -d",
+    "db-build":"docker-compose -f server/db/docker-compose.yml up -d --build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
