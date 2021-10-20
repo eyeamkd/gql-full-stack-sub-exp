@@ -9,4 +9,8 @@ const typeDefs = gql`
         title:String!,
         description:String
     }
-`;
+`; 
+
+const resolvers =  { 
+    
+}
