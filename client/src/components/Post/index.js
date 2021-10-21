@@ -4,9 +4,11 @@ import { Grid, Box, TextField, Button, Paper, Typography } from "@mui/material";
 function Post() {
   const [title, setTitle] = React.useState("");
   const [description, setDescription] = React.useState("");
+  const [data, setdata] = React.useState(null);
+  const dataStatus = useFormPost(data);
 
   const submitPost = () => {
-    console.log("Title is", title, "Description is ", description);
+    setdata(1);
   };
 
   return (
@@ -38,8 +40,8 @@ function Post() {
             <TextField
               variant="outlined"
               placeholder="Title"
-              onChange={(e) => setTitle(e.target.value)} 
-              inputProps={{"data-testid":"post-input-title"}}
+              onChange={(e) => setTitle(e.target.value)}
+              inputProps={{ "data-testid": "post-input-title" }}
             />
           </Grid>
           <Grid item>
@@ -50,13 +52,15 @@ function Post() {
               multiline
               placeholder="Description"
               onChange={(e) => setDescription(e.target.value)}
-              inputProps={{"data-testid":"post-input-description"}}
+              inputProps={{ "data-testid": "post-input-description" }}
             />
           </Grid>
           <Grid item>
             <Button variant="contained" onClick={submitPost}>
               Submit
             </Button>
+
+            <Typography variant="h4">{dataStatus}</Typography>
           </Grid>
         </Grid>
       </Paper>
@@ -65,3 +69,12 @@ function Post() {
 }
 
 export default Post;
+
+const useFormPost = (data) => {
+  const [status, setStatus] = React.useState("Data is yet to pass");
+  React.useEffect(() => {
+    if (data != null) setStatus("Data not null");
+    else setStatus("Data null");
+  }, [data]);
+  return status;
+};
