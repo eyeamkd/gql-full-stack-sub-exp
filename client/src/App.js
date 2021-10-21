@@ -5,10 +5,6 @@ import {lightTheme, darkTheme } from './theme';
 import CssBaseline from "@mui/material/CssBaseline";
 import {Button, ThemeProvider} from '@mui/material';  
 
-
-
-
- 
 function App() { 
   const [theme, settheme] = React.useState(lightTheme)
   const switchTheme = () => {
