@@ -3,7 +3,8 @@ import logo from './logo.svg';
 import './App.css'; 
 import {lightTheme, darkTheme } from './theme';  
 import CssBaseline from "@mui/material/CssBaseline";
-import {Button, ThemeProvider} from '@mui/material';  
+import {Button, ThemeProvider, Box} from '@mui/material';  
+import Post from './components/Post';
 
 function App() { 
   const [theme, settheme] = React.useState(lightTheme)
@@ -18,9 +19,10 @@ function App() {
     <ThemeProvider theme={theme}> 
     <CssBaseline/> 
     <div className="App">
-      <header>
-          <Button onClick={switchTheme} >Theme Switch</Button>
-      </header>
+      <Box sx={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', minHeight:'100vh'}}>
+          <Button onClick={switchTheme} >Theme Switch</Button> 
+          <Post/>
+      </Box>
     </div>
     </ThemeProvider>
   );
